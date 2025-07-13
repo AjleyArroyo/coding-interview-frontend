@@ -1,6 +1,6 @@
 import 'package:coding_interview_frontend/modules/calculator/presentation/bloc/calculator_bloc.dart';
 import 'package:coding_interview_frontend/modules/calculator/presentation/widgets/calculator_widgets.dart';
-import 'package:coding_interview_frontend/modules/core/widgets/custom_background.dart';
+import 'package:coding_interview_frontend/modules/core/widgets/global_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/foundation.dart';

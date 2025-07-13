@@ -1,5 +1,5 @@
 import 'package:coding_interview_frontend/modules/calculator/presentation/bloc/calculator_bloc.dart';
-import 'package:coding_interview_frontend/modules/core/data/models/selectable_item.dart';
+import 'package:coding_interview_frontend/modules/core/data/models/global_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

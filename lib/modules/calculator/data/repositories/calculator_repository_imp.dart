@@ -1,5 +1,5 @@
 import 'package:coding_interview_frontend/modules/calculator/data/services/calculator_services.dart';
-import 'package:coding_interview_frontend/modules/calculator/domain/repositories/calculator_repository.dart';
+import 'package:coding_interview_frontend/modules/calculator/domain/repositories/calculator_repositories.dart';
 import 'package:coding_interview_frontend/modules/core/data/models/global_models.dart';
 
 class CalculatorRepositoryImpl implements CalculatorRepository {
