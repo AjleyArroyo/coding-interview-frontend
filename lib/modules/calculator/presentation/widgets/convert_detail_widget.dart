@@ -9,7 +9,7 @@ class ConvertDetailWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<CalculatorBloc>().state as CalculatorLoaded;
-
+    // Logica dependiendo del tipo de conversion multipica o divide
     final result = state.selectedTypeConversion == 1
         ? (state.convertedAmount ?? 0) * state.inputAmount
         : (state.convertedAmount ?? 0) == 0
@@ -69,7 +69,7 @@ class ConvertDetailWidget extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  "= 10",
+                  "= 1",
                   style: TextStyle(fontSize: 16),
                 ).redacted(context: context, redact: state.isConverting),
                 SizedBox(width: 6),

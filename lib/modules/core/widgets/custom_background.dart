@@ -10,9 +10,7 @@ class CustomBackground extends StatelessWidget {
     final diameter = size.height;
     return Stack(
       children: [
-        // Fondo blanco
         Container(color: Color(0xFFE4F7F9)),
-
         // Círculo desbordado a la derecha
         Positioned(
           top: -diameter * 0.15,

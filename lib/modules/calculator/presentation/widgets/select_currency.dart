@@ -17,6 +17,7 @@ class SelectCurrency extends StatelessWidget {
     required this.selectedItem,
   });
 
+  //Muestra los items del select
   void _showItemSelector(BuildContext context) async {
     final bloc = context.read<CalculatorBloc>();
     final result = await showModalBottomSheet<SelectableItem>(
@@ -102,7 +103,7 @@ class SelectCurrency extends StatelessWidget {
         );
       },
     );
-
+    //Interpreta el item seleccionado y actualiza el bloc
     if (result != null && result.id != selectedItem.id) {
       final currentState = bloc.state;
       if (currentState is CalculatorLoaded) {
@@ -120,6 +121,7 @@ class SelectCurrency extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Mide la altura para los labels "Tengo" y "Quiero"
     final badgeOffset = MediaQuery.of(context).size.height * 0.02;
 
     return GestureDetector(
@@ -143,6 +145,7 @@ class SelectCurrency extends StatelessWidget {
               const Icon(Icons.keyboard_arrow_down, size: 28),
             ],
           ),
+          // Posiciona el label Quiero y Tengo
           Positioned(
             top: -badgeOffset,
             child: Container(

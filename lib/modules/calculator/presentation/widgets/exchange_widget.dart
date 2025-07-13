@@ -39,6 +39,7 @@ class ExchangeWidget extends StatelessWidget {
             children: [
               SelectCurrency(
                 label: "TENGO",
+                //Se valida el tipo de coversion, para intercambiar los select con el boton swap
                 title: conversionType == 1 ? "Cripto" : "FIAT",
                 items: conversionType == 1 ? cryptos : fiats,
                 selectedItem: conversionType == 1
@@ -47,6 +48,7 @@ class ExchangeWidget extends StatelessWidget {
               ),
 
               SizedBox(width: swapSpace),
+              //Se valida el tipo de coversion, para intercambiar los select con el boton swap
               SelectCurrency(
                 label: "QUIERO",
                 title: conversionType == 1 ? "FIAT" : "Cripto",

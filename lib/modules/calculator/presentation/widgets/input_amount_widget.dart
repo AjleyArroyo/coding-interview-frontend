@@ -42,12 +42,15 @@ class InputAmountWidgetState extends State<InputAmountWidget> {
           Expanded(
             child: TextField(
               onEditingComplete: () {
+                //Cuando quita el focus o presiona en Done realizar la conversión
+                //Tambien se valida que si escribe , lo cambie por .
                 final parsed = double.parse(
                   _controller.text.replaceAll(",", "."),
                 );
                 context.read<CalculatorBloc>().add(ConvertCurrency(parsed));
               },
               onChanged: (value) {
+                // Se valida que si escribe , lo cambie por . y se envia a convertir
                 _controller.text = value.replaceAll(",", ".");
 
                 final parsed = double.tryParse(_controller.text) ?? 0;
