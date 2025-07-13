@@ -22,8 +22,6 @@ class InputAmountWidgetState extends State<InputAmountWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final state = context.watch<CalculatorBloc>().state as CalculatorLoaded;
-
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: const Color(0xFFF4B53F), width: 1),
@@ -44,11 +42,13 @@ class InputAmountWidgetState extends State<InputAmountWidget> {
           Expanded(
             child: TextField(
               onEditingComplete: () {
-                final parsed = double.parse(_controller.text);
+                final parsed = double.parse(
+                  _controller.text.replaceAll(",", "."),
+                );
                 context.read<CalculatorBloc>().add(ConvertCurrency(parsed));
               },
               onChanged: (value) {
-                _controller.text = value;
+                _controller.text = value.replaceAll(",", ".");
 
                 final parsed = double.tryParse(_controller.text) ?? 0;
                 context.read<CalculatorBloc>().add(ConvertCurrency(parsed));

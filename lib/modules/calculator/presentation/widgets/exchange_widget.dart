@@ -3,6 +3,7 @@ import 'package:coding_interview_frontend/modules/core/data/models/selectable_it
 import 'package:coding_interview_frontend/modules/calculator/presentation/widgets/select_currency.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/foundation.dart';
 
 class ExchangeWidget extends StatelessWidget {
   final List<SelectableItem> fiats;
@@ -17,8 +18,10 @@ class ExchangeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final swapSpace = screenWidth * 0.18; // espacio para el botón central
+    final screenWidth = kIsWeb
+        ? MediaQuery.of(context).size.width * 0.5
+        : MediaQuery.of(context).size.width;
+    final swapSpace = screenWidth * 0.16; // espacio para el botón central
     final state = context.watch<CalculatorBloc>().state as CalculatorLoaded;
 
     return Stack(
@@ -81,8 +84,10 @@ class _SwapButtonState extends State<_SwapButton> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final buttonSize = screenWidth * 0.2 * 0.55;
+    final screenWidth = kIsWeb
+        ? MediaQuery.of(context).size.width * 0.5
+        : MediaQuery.of(context).size.width;
+    final buttonSize = screenWidth * 0.2 * 0.6;
 
     return InkWell(
       onTap: () {

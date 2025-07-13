@@ -66,7 +66,13 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
       final currentVersion = ++requestVersion;
       if (state is CalculatorLoaded) {
         final current = state as CalculatorLoaded;
-        emit(current.copyWith(isConverting: true, inputAmount: event.amount));
+        emit(
+          current.copyWith(
+            isConverting: true,
+            inputAmount: event.amount,
+            error: false,
+          ),
+        );
         try {
           final convertedAmount = await calculatorRepository.convertCurrency(
             fiatCurrencyId: current.selectedFiat.id,
@@ -88,7 +94,12 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
             ),
           );
         } catch (e) {
-          emit((state as CalculatorLoaded).copyWith(error: true));
+          emit(
+            (state as CalculatorLoaded).copyWith(
+              error: true,
+              isConverting: false,
+            ),
+          );
         }
       }
     });

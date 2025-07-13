@@ -62,10 +62,7 @@ class SelectCurrency extends StatelessWidget {
                                 children: [
                                   Text(
                                     item.name,
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                      //fontWeight: FontWeight.bold,
-                                    ),
+                                    style: const TextStyle(fontSize: 14),
                                   ),
                                   Text(
                                     item.description,
@@ -134,7 +131,7 @@ class SelectCurrency extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset(selectedItem.image, width: 24, height: 24),
+              Image.asset(selectedItem.image, width: 20, height: 20),
               const SizedBox(width: 8),
               Text(
                 selectedItem.name,
